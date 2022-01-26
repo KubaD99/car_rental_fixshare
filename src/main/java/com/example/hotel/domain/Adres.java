@@ -1,7 +1,6 @@
-package com.example.car_rental.domain;
+package com.example.hotel.domain;
 
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,18 +17,12 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @Getter
-public class Address {
-
-
+public class Adres {
     @Id
     @GeneratedValue
     Long id;
-
-    String cityName;
-
-    String street;
-
-    String streetNumber;
-
-    String postCode;
+    String miasto;
+    String ulica;
+    String numerDomu;
+    String kodPocztowy;
 }

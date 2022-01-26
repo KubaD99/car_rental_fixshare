@@ -1,4 +1,4 @@
-package com.example.car_rental.api;
+package com.example.hotel.api;
 
 import lombok.Value;
 
@@ -8,19 +8,13 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Value
-public class RentalDetailsRequest {
-
+public class SzczegolyWynajmu {
     @NotNull
     @Future
     LocalDate from;
-
     @NotNull
     @Future
     LocalDate to;
-
     @Min(0)
-    Double price;
-
-    @NotNull
-    InsuranceOption insuranceOption;
+    Double cena;
 }

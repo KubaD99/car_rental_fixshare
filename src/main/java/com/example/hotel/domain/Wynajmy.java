@@ -1,4 +1,4 @@
-package com.example.car_rental.domain;
+package com.example.hotel.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,29 +18,20 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE)
 @Entity
 @Setter
-public class Rental {
-
-    public Rental(Car car, LocalDate from, LocalDate to, Double price) {
-        this.car = car;
-        this.startDate = from;
-        this.endDate = to;
-        this.price = price;
+public class Wynajmy {
+    public Wynajmy(Pokoj pokoj, LocalDate from, LocalDate to, Double cena) {
+        this.pokoj = pokoj;
+        this.rozpoczecie = from;
+        this.zakonczenie = to;
+        this.cena = cena;
     }
-
     @Id
     @GeneratedValue
     Long id;
-
     @OneToOne(cascade = CascadeType.ALL)
-    Car car;
-
-    LocalDate startDate;
-
-    LocalDate endDate;
-
-    Double price;
-
-    Boolean isActive;
-
-
+    Pokoj pokoj;
+    LocalDate rozpoczecie;
+    LocalDate zakonczenie;
+    Double cena;
+    Boolean czyAktualny;
 }

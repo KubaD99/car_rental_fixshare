@@ -1,4 +1,4 @@
-package com.example.car_rental.domain;
+package com.example.hotel.domain;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import java.time.YearMonth;
-
 import static lombok.AccessLevel.PRIVATE;
 
 @Entity
@@ -16,26 +14,17 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @Getter
-public class Car {
-
-    public Car(String brand, String model, YearMonth yearOfProduction) {
-        this.brand = brand;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
+public class Pokoj {
+    public Pokoj(String standard, String wielkosc) {
+        this.standard = standard;
+        this.wielkosc = wielkosc;
     }
-
     @Id
     @GeneratedValue
     Long id;
-
-    String brand;
-
-    String model;
-
-    YearMonth yearOfProduction;
+    String standard;
+    String wielkosc;
 
     @Setter
     boolean isRented;
-
-
 }

@@ -1,4 +1,4 @@
-package com.example.car_rental.domain;
+package com.example.hotel.domain;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -9,41 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @EqualsAndHashCode
 @Getter
 @Entity
-public class Customer {
-
-
-    public Customer(String fullName, Address address) {
-        this.fullName = fullName;
-        this.address = address;
-        this.customerRentals = new ArrayList<>();
+public class Klient {
+    public Klient(String imieNazwisko, Adres adres) {
+        this.imieNazwisko = imieNazwisko;
+        this.adres = adres;
+        this.customerWynajmies = new ArrayList<>();
     }
-
     @Id
     @GeneratedValue
     Long id;
-
-    String fullName;
-
+    String imieNazwisko;
     @OneToOne(cascade = CascadeType.ALL)
-    Address address;
-
+    Adres adres;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Rental> customerRentals;
-
-    public void addRental(Rental rental){
-        customerRentals.add(rental);
+    List<Wynajmy> customerWynajmies;
+    public void dodajWynajm(Wynajmy wynajmy){
+        customerWynajmies.add(wynajmy);
     }
-
-
-
-
-
-
 }

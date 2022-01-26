@@ -1,7 +1,7 @@
-package com.example.car_rental.api;
+package com.example.hotel.api;
 
 
-import com.example.car_rental.domain.Customer;
+import com.example.hotel.domain.Klient;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,14 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/customer")
-public class CustomerRest {
-
-
-    CustomerService customerService;
-
+@RequestMapping("/Klient")
+public class BazaKlientow {
+    ObslugaKlienta obslugaKlienta;
     @PostMapping
-    public Customer addNewCustomer(@RequestBody AddNewCustomerRequest customer) {
-        return customerService.createAndSaveNewCustomer(customer);
+    public Klient dodajklienta(@RequestBody DodajKlienta klient) {
+        return obslugaKlienta.StworzKlienta(klient);
     }
 }
